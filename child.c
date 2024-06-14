@@ -14,9 +14,14 @@ void	child(t_list pipex, char **av, char **env)
 	if (pipex.pid == 0)
 	{
 		if (pipex.idx == 0)
-			dup_files(pipex.infile, pipex.fds[pipex.d_idx - 1][1]);
+			dup_files(pipex.infile, pipex.fds[0][1]);
 		else if (pipex.idx == pipex.pipe_num - 1)
-			dup_files(pipex.fds[pipex.d_idx - 1][0], pipex.outfile);
+		{
+			if (pipex.pipe_num == 2)
+				dup_files(pipex.fds[0][0], pipex.outfile);
+			else
+				dup_files(pipex.fds[pipex.d_idx - 1][0], pipex.outfile);
+		}
 		else
 			dup_files(pipex.fds[pipex.d_idx - 1][0], pipex.fds[pipex.d_idx][1]);
 		close_pipes(&pipex);
