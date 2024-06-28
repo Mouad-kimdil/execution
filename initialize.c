@@ -67,16 +67,16 @@ void	close_pipes(t_list *pipex)
 	}
 }
 
-void	dup_files(int fd1, int fd2)
+void	dup_files(int infile, int outfile)
 {
 	int	errnum;
-	if (dup2(fd1, 0) < 0)
+	if (dup2(infile, 0) < 0)
 	{
 		errnum = errno;
 		putstr_fd(2, strerror(errnum));
 		exit(EXIT_FAILURE);
 	}
-	if (dup2(fd2, 1) < 0)
+	if (dup2(outfile, 1) < 0)
 	{
 		errnum = errno;
 		putstr_fd(2, strerror(errnum));

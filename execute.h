@@ -47,11 +47,12 @@ char	*get_path(char **env);
 void	free_struct(t_list *pipex);
 void	child(t_list pipex, char **av, char **env);
 void	creat_pipes(t_list *pipex);
-void	dup_files(int fd1, int fd2);
+void	dup_files(int infile, int outfile);
 void	cmd_error(t_list *pipex);
 char	*get_cmd_path(t_list pipex);
 void	increment(t_list *pipex);
 void	close_pipes(t_list *pipex);
 void	close_infile_outfile(t_list *pipex);
+void	single_command(t_list pipex, char **av, char **env);
 
 #endif
