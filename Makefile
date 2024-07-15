@@ -1,5 +1,5 @@
 SRC = execute.c Error.c initialize.c split.c libc.c \
-	check_access.c child.c
+	check_access.c child.c initialize2.c
 FLAGS = -Wall -Wextra -Werror -fsanitize=address -g
 NAME = execute
 INC = execute.h
