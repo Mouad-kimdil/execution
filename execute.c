@@ -24,7 +24,7 @@ int	main(int ac, char **av, char **env)
 			increment(&pipex);
 		}
 		close_pipes(&pipex);
-		while (waitpid(pipex.pid, &state, -1) != -1)
+		while (waitpid(pipex.pid, &state, 0) != -1)
 			;
 		close_infile_outfile(&pipex);
 		exit(WEXITSTATUS(state));
