@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   libc.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mkimdil <mkimdil@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/15 05:56:28 by mkimdil           #+#    #+#             */
+/*   Updated: 2024/07/15 06:05:05 by mkimdil          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "execute.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
@@ -69,4 +81,9 @@ char	*ft_strdup(char *str)
 	}
 	ptr[i] = '\0';
 	return (ptr);
+}
+
+void	putstr_fd(int fd, char *str)
+{
+	write (fd, str, ft_strlen(str));
 }

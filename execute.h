@@ -1,14 +1,26 @@
-#ifndef EXECUTE_H
-#define EXECUTE_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   execute.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mkimdil <mkimdil@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/15 05:56:45 by mkimdil           #+#    #+#             */
+/*   Updated: 2024/07/15 05:57:12 by mkimdil          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include <stdlib.h>
-#include <errno.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <limits.h>
-#include <string.h>
-#include <sys/wait.h>
-#include <stdio.h>
+#ifndef EXECUTE_H
+# define EXECUTE_H
+
+# include <stdlib.h>
+# include <errno.h>
+# include <unistd.h>
+# include <fcntl.h>
+# include <limits.h>
+# include <string.h>
+# include <sys/wait.h>
+# include <stdio.h>
 
 typedef struct s_list
 {
