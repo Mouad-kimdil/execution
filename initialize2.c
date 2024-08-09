@@ -6,7 +6,7 @@
 /*   By: mkimdil <mkimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 05:54:33 by mkimdil           #+#    #+#             */
-/*   Updated: 2024/07/15 05:56:35 by mkimdil          ###   ########.fr       */
+/*   Updated: 2024/08/10 00:54:37 by mkimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ char	*get_cmd_path(t_list pipex)
 
 	i = 0;
 	splited = ft_split(pipex.path, ':');
+	if (!splited)
+		return (NULL);
 	while (splited[i])
 	{
 		temp = ft_strjoin(splited[i], "/");
