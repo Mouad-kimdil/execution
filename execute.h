@@ -6,7 +6,7 @@
 /*   By: mkimdil <mkimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 05:56:45 by mkimdil           #+#    #+#             */
-/*   Updated: 2024/07/15 05:57:12 by mkimdil          ###   ########.fr       */
+/*   Updated: 2024/08/10 00:58:56 by mkimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,6 @@ void	increment(t_list *pipex);
 void	close_pipes(t_list *pipex);
 void	close_infile_outfile(t_list *pipex);
 void	single_command(t_list pipex, char **av, char **env);
+void	free_arr(int **fds);
 
 #endif
