@@ -6,7 +6,7 @@
 /*   By: mkimdil <mkimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 05:56:43 by mkimdil           #+#    #+#             */
-/*   Updated: 2024/07/15 05:56:49 by mkimdil          ###   ########.fr       */
+/*   Updated: 2024/08/10 00:47:40 by mkimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	ft_strlen(char *str)
 
 void	putchar_fd(int fd, char c)
 {
+	if (fd < 0)
+		return ;
 	write (fd, &c, 1);
 }
 
