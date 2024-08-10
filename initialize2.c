@@ -6,11 +6,27 @@
 /*   By: mkimdil <mkimdil@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 05:54:33 by mkimdil           #+#    #+#             */
-/*   Updated: 2024/07/15 05:56:35 by mkimdil          ###   ########.fr       */
+/*   Updated: 2024/08/10 00:58:48 by mkimdil          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "execute.h"
+
+void	free_arr(int **fds)
+{
+	int	i;
+
+	if (fds)
+	{
+		i = 0;
+		while (fds[i])
+		{
+			free(fds[i]);
+			i++;
+		}
+		free(fds);
+	}
+}
 
 void	increment(t_list *pipex)
 {
@@ -46,6 +62,8 @@ char	*get_cmd_path(t_list pipex)
 
 	i = 0;
 	splited = ft_split(pipex.path, ':');
+	if (!splited)
+		return (NULL);
 	while (splited[i])
 	{
 		temp = ft_strjoin(splited[i], "/");
@@ -67,6 +85,8 @@ void	initialize_struct(t_list *pipex, int ac, char **av, char **env)
 	pipex->c_idx = 2;
 	pipex->pid = 0;
 	pipex->fds = malloc(sizeof(int *) * pipex->pipe_num);
+	if (!pipex->fds)
+		return ;
 	pipex->idx = 0;
 	pipex->d_idx = 1;
 	pipex->path = get_path(env);
@@ -75,6 +95,7 @@ void	initialize_struct(t_list *pipex, int ac, char **av, char **env)
 	if (!pipex->path)
 	{
 		free_struct(pipex);
+		free_arr(pipex->fds);
 		exit(EXIT_FAILURE);
 	}
 }
