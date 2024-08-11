@@ -12,20 +12,21 @@
 
 #include "execute.h"
 
-void	free_arr(int **fds)
+void free_arr(int **fds)
 {
-	int	i;
+    int i = 0;
 
-	if (fds)
-	{
-		i = 0;
-		while (fds[i])
-		{
-			free(fds[i]);
-			i++;
-		}
-		free(fds);
-	}
+    if (fds == NULL)
+        return;
+
+    while (fds[i] != NULL)
+    {
+        free(fds[i]);
+        fds[i] = NULL;
+        i++;
+    }
+    free(fds);
+    fds = NULL;
 }
 
 void	increment(t_list *pipex)
